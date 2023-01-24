@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,j,len1,len2,n[1005]={0},p,q;
+	char a[2000],b[2000],key[30][30]={
+{"abcdefghijklmnopqrstuvwxyz"}, 
+{"zabcdefghijklmnopqrstuvwxy"},
+{"yzabcdefghijklmnopqrstuvwx"},
+{"xyzabcdefghijklmnopqrstuvw"},
+{"wxyzabcdefghijklmnopqrstuv"},
+{"vwxyzabcdefghijklmnopqrstu"},
+{"uvwxyzabcdefghijklmnopqrst"},
+{"tuvwxyzabcdefghijklmnopqrs"},
+{"stuvwxyzabcdefghijklmnopqr"},
+{"rstuvwxyzabcdefghijklmnopq"},
+{"qrstuvwxyzabcdefghijklmnop"},
+{"pqrstuvwxyzabcdefghijklmno"},
+{"opqrstuvwxyzabcdefghijklmn"},
+{"nopqrstuvwxyzabcdefghijklm"},
+{"mnopqrstuvwxyzabcdefghijkl"},
+{"lmnopqrstuvwxyzabcdefghijk"},
+{"klmnopqrstuvwxyzabcdefghij"},
+{"jklmnopqrstuvwxyzabcdefghi"},
+{"ijklmnopqrstuvwxyzabcdefgh"},
+{"hijklmnopqrstuvwxyzabcdefg"},
+{"ghijklmnopqrstuvwxyzabcdef"},
+{"fghijklmnopqrstuvwxyzabcde"},
+{"efghijklmnopqrstuvwxyzabcd"},
+{"defghijklmnopqrstuvwxyzabc"},
+{"cdefghijklmnopqrstuvwxyzab"},
+{"bcdefghijklmnopqrstuvwxyza"},
+};
+	gets(a);
+	gets(b);
+	len1=strlen(a);
+	len2=strlen(b);
+	for(i=0;i<len2;i++)
+		if(b[i]>='A'&&b[i]<='Z')
+		{
+			b[i]=b[i]+32;
+			n[i]=1;
+		}
+	for(i=0;i<len1;i++)
+		if(a[i]>='A'&&a[i]<='Z')
+		{
+			a[i]=a[i]+32;
+		}
+	for(i=0;i<len2;i++)
+	{
+		j=i%len1;
+		p=a[j]-'a';
+		q=b[i]-'a';
+		if(n[i]==1)
+		printf("%c",key[p][q]-32);
+		else
+		printf("%c",key[p][q]);
+	}
+	return 0;
+}
